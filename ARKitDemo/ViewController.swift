@@ -12,7 +12,18 @@ import ARKit
 class ViewController: UIViewController {
 
     @IBOutlet weak var sceneView: ARSCNView!
-
+    @IBOutlet weak var pickerView: UIPickerView!
+    
+    let pickerData = ["candle", "chair", "cup", "lamp", "vase"]
+    var chosenObject: String = "candle"
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        pickerView.isHidden = true
+        pickerView.delegate = self
+        pickerView.dataSource = self
+    }
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
@@ -42,10 +53,11 @@ class ViewController: UIViewController {
         let hitTransform = SCNMatrix4(result.worldTransform)
         let position = SCNVector3Make(hitTransform.m41, hitTransform.m42, hitTransform.m43)
         
-        addModel(name: "cup", position: position)
+        addModel(name: chosenObject, position: position)
     }
     
     @IBAction func chooseObjectToPlace(_ sender: Any) {
+        pickerView.isHidden = false
     }
     
     func popUpWarning() {
@@ -56,3 +68,21 @@ class ViewController: UIViewController {
     }
 }
 
+extension ViewController: UIPickerViewDelegate, UIPickerViewDataSource {
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return pickerData.count
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        return pickerData[row]
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        chosenObject = pickerData[row]
+        pickerView.isHidden = true
+    }
+}

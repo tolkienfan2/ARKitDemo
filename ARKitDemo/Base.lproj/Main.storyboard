@@ -40,13 +40,23 @@
                                     <action selector="chooseObjectToPlace:" destination="BYZ-38-t0r" eventType="touchUpInside" id="F6R-7I-NkF"/>
                                 </connections>
                             </button>
+                            <pickerView hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bTa-1n-x2z">
+                                <rect key="frame" x="237" y="551" width="130" height="70"/>
+                                <color key="backgroundColor" white="1" alpha="0.34209118150684931" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="130" id="QUL-zK-oSq"/>
+                                    <constraint firstAttribute="height" constant="70" id="sSi-Kc-7NN"/>
+                                </constraints>
+                            </pickerView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="c5H-JR-cCC" firstAttribute="top" secondItem="bTa-1n-x2z" secondAttribute="bottom" constant="8" id="BNc-6F-74z"/>
                             <constraint firstItem="D4c-K8-vjA" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="MLA-Pc-fiP"/>
                             <constraint firstItem="c5H-JR-cCC" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="20" symbolic="YES" id="N7l-Xb-Hqh"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="c5H-JR-cCC" secondAttribute="bottom" constant="8" id="abU-Vp-iDq"/>
                             <constraint firstItem="D4c-K8-vjA" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="cdb-hd-tGi"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="bTa-1n-x2z" secondAttribute="trailing" constant="8" id="gPC-PQ-H5D"/>
                             <constraint firstItem="D4c-K8-vjA" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="klM-Ob-v3F"/>
                             <constraint firstItem="D4c-K8-vjA" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="lut-FX-JAC"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="c5H-JR-cCC" secondAttribute="trailing" constant="8" id="tIe-63-Wbw"/>
@@ -54,6 +64,7 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
+                        <outlet property="pickerView" destination="bTa-1n-x2z" id="Upw-FD-P9R"/>
                         <outlet property="sceneView" destination="D4c-K8-vjA" id="miI-Pg-Gj7"/>
                     </connections>
                 </viewController>
